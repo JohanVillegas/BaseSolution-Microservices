@@ -6,3 +6,21 @@ Descripcion de las caracteristicas de las capas en una patron Domain Driver Desi
 
 ### Domain Model Layer
 El modelo de dominio debe capturar las reglas, el comportamiento, el lenguaje de negocios y las restricciones del contexto delimitado o microservicio de negocio que representa.
+
+#### The Domain Entity pattern
+Las entidades representan objetos del dominio y se definen principalmente por su identidad, continuidad y persistencia en el tiempo y no solo por los atributos que las componen.
+
+  - *Las entidades de dominio deben implementar el comportamiento además de los atributos de datos*
+  
+  Una entidad de dominio DDD, debe implementar la lógica del dominio o el comportamiento relacionado con los datos de entidad.
+
+**Partes de una clases de entidad**
+- Propiedades que componen el almacenamiento de los datos **{ATRIBUTOS}**
+
+      Ejemplo: Id, FirstName, etc...
+      Los atributos que sea necesarios para el negocio.
+
+- Lógica de negocio y las operaciones **{MÉTODOS}**
+
+      Ejemplo : Agregar un elemento, validar datos o cálculos matemáticos
+      Los métodos se encarga de las invariable y las regla de la entidad.
