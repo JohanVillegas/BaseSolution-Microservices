@@ -4,11 +4,11 @@ Es una solución base para aplicaciones arquitectónico de microservicios que im
 Descripcion de las caracteristicas de las capas en una patron Domain Driver Design
 ![Patron DDD](https://github.com/JohanVillegas/BaseSolution/blob/master/img/ddd.png) 
 
-### Domain Model Layer
+## Domain Model Layer
 El modelo de dominio debe capturar las reglas, el comportamiento, el lenguaje de negocios y las restricciones del contexto delimitado o microservicio de negocio que representa.
 
-#### The Domain Entity pattern
-Las entidades representan objetos del dominio y se definen principalmente por su identidad, continuidad y persistencia en el tiempo y no solo por los atributos que las componen.
+### The Domain Entity pattern
+Las entidades representan objetos del dominio y se definen principalmente por su **identidad**, **continuidad** y **persistencia** en el tiempo y no solo por los atributos que las componen.
 
   - *Las entidades de dominio deben implementar el comportamiento además de los atributos de datos*
   
@@ -24,3 +24,8 @@ Las entidades representan objetos del dominio y se definen principalmente por su
 
       Ejemplo : Agregar un elemento, validar datos o cálculos matemáticos
       Los métodos se encarga de las invariable y las regla de la entidad.
+
+#### The Value Object pattern
+Un objeto de valor es un objeto **sin identidad** conceptual que describe un aspecto de dominio. Se trata de objetos de los que se crea una instancia para representar elementos de diseño que solo interesan temporalmente. 
+
+#### The Aggregate pattern
