@@ -14,18 +14,23 @@ Las entidades representan objetos del dominio y se definen principalmente por su
   
   Una entidad de dominio DDD, debe implementar la lógica del dominio o el comportamiento relacionado con los datos de entidad.
 
-**Partes de una clases de entidad**
-- Propiedades que componen el almacenamiento de los datos **{ATRIBUTOS}**
+  **Partes de una clases de entidad**
+  - Propiedades que componen el almacenamiento de los datos **{ATRIBUTOS}**
+  
+    ```
+    Ejemplo: Id, FirstName, etc...
+    Los atributos que sea necesarios para el negocio.
+    ```
 
-      Ejemplo: Id, FirstName, etc...
-      Los atributos que sea necesarios para el negocio.
+  - Lógica de negocio y las operaciones **{MÉTODOS}**
 
-- Lógica de negocio y las operaciones **{MÉTODOS}**
-
-      Ejemplo : Agregar un elemento, validar datos o cálculos matemáticos
-      Los métodos se encarga de las invariable y las regla de la entidad.
+    ```
+    Ejemplo : Agregar un elemento, validar datos o cálculos matemáticos
+    Los métodos se encarga de las invariable y las regla de la entidad.
+    ```
 
 #### The Value Object pattern
 Un objeto de valor es un objeto **sin identidad** conceptual que describe un aspecto de dominio. Se trata de objetos de los que se crea una instancia para representar elementos de diseño que solo interesan temporalmente. 
 
 #### The Aggregate pattern
+Es un grupo de entidades y comportamientos que se pueden tratar como una unidad coherente que tienen procesos que pueden controlar un área importante de funcionalidad.
