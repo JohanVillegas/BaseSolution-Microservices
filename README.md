@@ -33,4 +33,7 @@ Las entidades representan objetos del dominio y se definen principalmente por su
 Un objeto de valor es un objeto **sin identidad** conceptual que describe un aspecto de dominio. Se trata de objetos de los que se crea una instancia para representar elementos de diseño que solo interesan temporalmente. 
 
 #### The Aggregate pattern
-Es un grupo de entidades y comportamientos que se pueden tratar como una unidad coherente que tienen procesos que pueden controlar un área importante de funcionalidad.
+Es un **grupo de entidades y comportamientos** que se pueden tratar como una unidad coherente que tienen procesos que pueden controlar un área importante de funcionalidad.
+
+#### Repository Contract/Interface
+Son los requisitos de infraestructura del modelo de dominio expresado en **interfaces**. Es decir, estas expresan qué repositorios debe implementar la capa de infraestructura y cómo. 
