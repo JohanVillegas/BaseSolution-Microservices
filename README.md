@@ -36,4 +36,7 @@ Un objeto de valor es un objeto **sin identidad** conceptual que describe un asp
 Es un **grupo de entidades y comportamientos** que se pueden tratar como una unidad coherente que tienen procesos que pueden controlar un área importante de funcionalidad.
 
 #### Repository Contract/Interface
-Son los requisitos de infraestructura del modelo de dominio expresado en **interfaces**. Es decir, estas expresan qué repositorios debe implementar la capa de infraestructura y cómo. 
+Son los requisitos de infraestructura del modelo de dominio expresado en **interfaces**. Es decir, estas expresan qué repositorios debe implementar la capa de infraestructura y cómo.
+
+#### SeedWork
+En nuestro Domain Entity pattern, existen codigo que puede estar repetido al comienzo del proyecto, para esos podemos utilizar una de nuestras mejores practica para ir unificando las clases y conviertiendola en codigo reutilizable, es por ender que se utilizar un seccion en el proyecto (carpeta llamada SeedWord), donde se va a ir ubicando todas clases reutilizables y personalizadas.
