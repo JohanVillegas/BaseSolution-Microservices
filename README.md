@@ -2,9 +2,11 @@
 Es una solución base para aplicaciones arquitectónico de microservicios que implementa el patrón DDD para aquellos que quieren comenzar a desarrollar con tecnología .NET Core 2.1 y Docker.
 ## Capas del Patron Domain Driver Design.
 Descripcion de las caracteristicas de las capas en una patron Domain Driver Design
-![Patron DDD](https://github.com/JohanVillegas/BaseSolution/blob/master/img/ddd.png) 
 
-## Domain Model Layer
+## Dependencia entre capas 
+![Dependencia Entre Layer Patron DDD](https://github.com/JohanVillegas/BaseSolution/blob/master/img/DependenciaEntreLayerPatronDDD.png) 
+
+## 1. Domain Model Layer
 El modelo de dominio debe capturar las reglas, el comportamiento, el lenguaje de negocios y las restricciones del contexto delimitado o microservicio de negocio que representa.
 
 ### The Domain Entity pattern
