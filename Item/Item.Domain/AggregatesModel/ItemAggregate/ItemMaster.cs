@@ -1,24 +1,27 @@
 ﻿using Item.Domain.SeedWork;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Item.Domain.AggregatesModel.ItemAggregate
 {
+    
     public class ItemMaster :Entity, IAggregateRoot
     {
+        #region [ attributes ]
         public string Number { get; set; }
         public string Name { get; set; }
         public string ShortName { get; set; }
         public string Decription { get; set; }
-        public string UnitMeasurement { get; set; }
-
-        public decimal StandardCost { get; set; }
-        public decimal CurrentCost { get; set; }
-
-        public int Quantity { get; set; }
-        public DateTime Created { get; set; }
-        public DateTime Modified { get; set; }
+        public UnitMeasure UnitMeasure { get; set; }
+        public ItemMasterType Type { get; set; }
+        public DateTime DateTime { get; set; }
         public bool Active { get; set; }
+        #endregion
+
+        #region [ notas de la clases ]
+        //// el atributo {UnitMeasurement} debe ser expresada en una clase 
+        //// 
+        //// tener presente que el atributo {Type} debe de ser expresado en una clase 
+        #endregion
+
     }
 }
