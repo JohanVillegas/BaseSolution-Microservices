@@ -1,4 +1,5 @@
 ﻿using Item.Domain.SeedWork;
+using Item.Domain.SeedWork.Interfaces;
 using System;
 
 namespace Item.Domain.AggregatesModel.ItemAggregate
