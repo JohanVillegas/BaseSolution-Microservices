@@ -3,11 +3,15 @@ Es una solución base para aplicaciones arquitectónico de microservicios que im
 ## Capas del Patron Domain Driver Design.
 Descripcion de las caracteristicas de las capas en una patron Domain Driver Design
 
-## Dependencia entre capas 
+## Descripcion grafica de las dependencias entre capas 
 ![Dependencia Entre Layer Patron DDD](https://github.com/JohanVillegas/BaseSolution/blob/master/img/DependenciaEntreLayerPatronDDD.png) 
 
 ## 1. Domain Model Layer
 El modelo de dominio debe capturar las reglas, el comportamiento, el lenguaje de negocios y las restricciones del contexto delimitado o microservicio de negocio que representa.
+
+### Descripcion grafica de la estructura basica de Domain Model Layer
+![Descripcion de la capa del dominio](https://github.com/JohanVillegas/BaseSolution/blob/master/img/DomainModelLayer.png) 
+
 
 ### The Domain Entity pattern
 Las entidades representan objetos del dominio y se definen principalmente por su **identidad**, **continuidad** y **persistencia** en el tiempo y no solo por los atributos que las componen.
@@ -31,14 +35,14 @@ Las entidades representan objetos del dominio y se definen principalmente por su
     Los métodos se encarga de las invariable y las regla de la entidad.
     ```
 
-#### The Value Object pattern
+### The Value Object pattern
 Un objeto de valor es un objeto **sin identidad** conceptual que describe un aspecto de dominio. Se trata de objetos de los que se crea una instancia para representar elementos de diseño que solo interesan temporalmente, asociado a esto, otra caracteristica importante es que tienes que ser **inmutable**, es decir  cuando se construye el objeto, debe proporcionar los valores necesarios, pero no debe permitir que cambien durante la vigencia del objeto. 
 
-#### The Aggregate pattern
+### The Aggregate pattern
 Es un **grupo de entidades y comportamientos** que se pueden tratar como una unidad coherente que tienen procesos que pueden controlar un área importante de funcionalidad.
 
-#### Repository Contract/Interface
+### Repository Contract/Interface
 Son los requisitos de infraestructura del modelo de dominio expresado en **interfaces**. Es decir, estas expresan qué repositorios debe implementar la capa de infraestructura y cómo.
 
-#### SeedWork
+### SeedWork
 En nuestro Domain Entity pattern, existen código que puede estar repetido al comienzo del proyecto, para esos podemos utilizar una de nuestras mejores practica para ir unificando las clases y convirtiéndola en código reutilizable, es por ende que se utilizar un sección en el proyecto (carpeta llamada SeedWord), donde se va a ir ubicando todas clases reutilizables y personalizadas.
