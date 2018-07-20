@@ -10,7 +10,7 @@ Descripcion de las caracteristicas de las capas en una patron Domain Driver Desi
 El modelo de dominio debe capturar las reglas, el comportamiento, el lenguaje de negocios y las restricciones del contexto delimitado o microservicio de negocio que representa.
 
 ### Descripcion grafica de la estructura basica de Domain Model Layer
-![Descripcion de la capa del dominio](https://github.com/JohanVillegas/BaseSolution/blob/master/img/DomainModelLayer.png) 
+![Descripcion de la capa del dominio](https://github.com/JohanVillegas/BaseSolution/blob/master/img/DomainModelLayer V1.png) 
 
 
 ### The Domain Entity pattern
