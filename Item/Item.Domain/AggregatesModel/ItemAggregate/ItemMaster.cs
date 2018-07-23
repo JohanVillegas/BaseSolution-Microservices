@@ -16,12 +16,12 @@ namespace Item.Domain.AggregatesModel.ItemAggregate
         public bool Active { get; private set; }
 
         public UnitMeasure UnitMeasure { get; private set; }
-        public ItemMasterType Type { get; private set; }
+        public Type Type { get; private set; }
         #endregion
 
         #region [ methods ]
         public static ItemMaster AddItemMaster(string number, string name, string shortName, string description, 
-                                               DateTime dateTime, bool active, UnitMeasure unitMeasure, ItemMasterType type)
+                                               DateTime dateTime, bool active, UnitMeasure unitMeasure, Type type)
         {
             ItemMaster itemMaster = new ItemMaster()
             {
