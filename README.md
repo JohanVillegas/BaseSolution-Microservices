@@ -53,8 +53,11 @@ En nuestro Domain Entity pattern, existen código que puede estar repetido al co
 En la Infraestructura esta encargada de realizar las operaciones de persistencia de datos, dicho esto es necesario resalta que la implementación esta basada en el marco Entity Framawork Core, estableciendo los Repositories, UnitOfWork con DbContext como base.
 
 ### Repositories
+Los repositorios son clases o componente que encapsulan la lógica necesaria para tener accesos a orígenes de datos,
+dicho esto cada repositorio implementa una interfaz de los Aggregare-Root, esto quiere decir que cada Aggregate posee un repositorio especificando sus implementaciones que se encuentra en la capa de dominio.
 
 ### UnitOfWork
+Una unidad de trabajo se conoce como una sola transacción que implica varias operaciones de inserción, actualización o eliminación. En otras palabras, las transacciones de inserción, actualización o eliminación se administran en una única transacción. Esto es más eficaz que el control de varias transacciones de base de datos de una manera profusa. 
 
 ### Context
 
