@@ -6,6 +6,7 @@ namespace Item.Domain.SeedWork.Interfaces
 {
     /// <summary>
     /// Marker interface, that is used just to indicate that this entity class is also an aggregate root.
+    /// Implement: In object of type Aggregate-root
     /// </summary>
     public interface IAggregateRoot
     {

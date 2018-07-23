@@ -7,6 +7,7 @@ namespace Item.Domain.SeedWork
 {
     /// <summary>
     /// ValueObject base class
+    /// Implement: In value object classes
     /// </summary>
     public abstract class ValueObject
     {

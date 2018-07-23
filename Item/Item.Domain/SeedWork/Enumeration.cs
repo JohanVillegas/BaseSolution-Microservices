@@ -3,6 +3,10 @@
 
 namespace Item.Domain.SeedWork
 {
+    /// <summary>
+    /// Enumeration base class
+    /// Implement: In object Enumeration
+    /// </summary>
     public abstract class Enumeration: IComparable
     {
         public string Name { get; private set; }
