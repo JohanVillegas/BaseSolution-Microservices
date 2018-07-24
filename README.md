@@ -59,7 +59,9 @@ dicho esto cada repositorio implementa una interfaz de los Aggregare-Root, esto 
 ### UnitOfWork
 Una unidad de trabajo se conoce como una sola transacción que implica varias operaciones de inserción, actualización o eliminación. En otras palabras, las transacciones de inserción, actualización o eliminación se administran en una única transacción. Esto es más eficaz que el control de varias transacciones de base de datos de una manera profusa. 
 
-### Context
+### DbContext
+Es una representación de una sesión con la base de datos y se puede usar  para el guardado y consultas de las entidades, esta funcionalidad es una combinación de los patrones UnitOfWork y Repositoy, en nuestro caso va a realizar el guardado y configuración de nuestras entidades que van a estar alojadas en una base de datos.
 
 ### EntityConfiguration
+Es donde van a estar agrupadas las configuraciones de cada entidad, existen diferentes formas de realizar las configuraciones necesarias para las entidades de un proyecto, en este caso vamos a utilizar Fuent API, que es una forma práctica de cambiar la mayoría de convenciones y asignaciones en el nivel de infraestructura de la persistencia de datos, por lo que el modelo de entidad estará limpio y desacoplado de la infraestructura de persistencia.
 
