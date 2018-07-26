@@ -50,7 +50,10 @@ En nuestro Domain Entity pattern, existen código que puede estar repetido al co
 ## Continuara ... Hasta aqui estariamos culminando la primera fase de la implementacion de esta capa. De igual forma se estara actualizando a medida que el proyecto vaya evolucionando.
 
 ## 2. Infrastructure Layer
-En la Infraestructura esta encargada de realizar las operaciones de persistencia de datos, dicho esto es necesario resalta que la implementación esta basada en el marco Entity Framawork Core, estableciendo los Repositories, UnitOfWork con DbContext como base.
+La capa Infraestructura esta encargada de realizar las operaciones de persistencia de datos, dicho esto es necesario resalta que la implementación esta basada en el marco Entity Framawork Core, estableciendo los Repositories, UnitOfWork con DbContext como base.
+
+### Descripcion grafica de la estructura basica de Infrastructure Layer
+![Descripcion de la capa del dominio](https://github.com/JohanVillegas/BaseSolution/blob/master/img/InfrastructureLayerV1.png) 
 
 ### Repositories
 Los repositorios son clases o componente que encapsulan la lógica necesaria para tener accesos a orígenes de datos,
