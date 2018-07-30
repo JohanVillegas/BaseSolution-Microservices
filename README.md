@@ -1,7 +1,7 @@
 # BaseSolution - Aplicación de microservicio BASE. Utilizando Tecnología Docker Containers y .NET Core 2.1 Implementando Domain Driven Design.
 Es una solución base para aplicaciones arquitectónico de microservicios que implementa DDD para aquellos que quieren comenzar a desarrollar con tecnología .NET Core 2.1 y Docker.
-## Capas del Patron Domain Driver Design.
-Descripcion de las caracteristicas de las capas en una patron Domain Driver Design
+## Capas del Domain Driver Design.
+Descripcion de las caracteristicas de las capas en una Domain Driver Design
 
 ## Descripcion grafica de las dependencias entre capas 
 ![Dependencia Entre Layer Patron DDD](https://github.com/JohanVillegas/BaseSolution/blob/master/img/DependenciaEntreLayerPatronDDD.png) 
