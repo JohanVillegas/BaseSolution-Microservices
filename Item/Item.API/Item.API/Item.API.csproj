@@ -10,7 +10,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MediatR" Version="5.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Item.Application\Item.Application.csproj" />
+    <ProjectReference Include="..\..\Item.Infrastructure\Item.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
