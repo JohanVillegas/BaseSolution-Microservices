@@ -32,7 +32,7 @@ namespace Item.Infrastructure.EntityConfigurations
             itemMasterConfiguration.Property<bool>("Active")
                 .IsRequired();
 
-            itemMasterConfiguration.Property<Guid?>("TypeId")
+            itemMasterConfiguration.Property<int?>("TypeId")
                 .IsRequired();
             itemMasterConfiguration.Property<Guid?>("UnitMeasureId")
                 .IsRequired();
