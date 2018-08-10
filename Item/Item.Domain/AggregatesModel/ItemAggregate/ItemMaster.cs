@@ -19,6 +19,23 @@ namespace Item.Domain.AggregatesModel.ItemAggregate
         public Type Type { get; private set; }
         #endregion
 
+        #region [ constructor ]
+        public ItemMaster()
+        {
+
+        } 
+
+        public ItemMaster(string number, string name, string shortName, string decription, DateTime dateTime, bool active, Guid unitMeasureId, Guid typeId)
+        {
+            Number = number;
+            Name = name;
+            ShortName = shortName;
+            Decription = decription;
+            DateTime = dateTime;
+            Active = active;
+        }
+        #endregion
+
         #region [ methods ]
         public static ItemMaster AddItemMaster(string number, string name, string shortName, string description, 
                                                DateTime dateTime, bool active, UnitMeasure unitMeasure, Type type)
