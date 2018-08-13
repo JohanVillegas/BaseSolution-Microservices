@@ -28,7 +28,9 @@ namespace Item.Application.Commands
             // methods and constructor so validations, invariants and business logic 
             // make sure that consistency is preserved across the whole aggregate
 
-            var item = new ItemMaster(request.Number, request.Name, request.ShortName, request.Decription, request.DateTime, request.Active, request.UnitMeasureId, request.TypeId);
+            var item = new ItemMaster();
+
+            item.AddItemMaster(request.Number, request.Name, request.ShortName, request.Decription, request.DateTime, request.Active, request.UnitMeasureId, request.TypeId);
 
             _itemRepository.Add(item);
 

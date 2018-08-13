@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Item.Infrastructure.Migrations
 {
     [DbContext(typeof(ItemContext))]
-    [Migration("20180810213819_Initialize")]
-    partial class Initialize
+    [Migration("20180813214350_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -30,8 +30,6 @@ namespace Item.Infrastructure.Migrations
 
                     b.Property<DateTime>("DateTime");
 
-                    b.Property<string>("Decription");
-
                     b.Property<string>("Description")
                         .HasMaxLength(100);
 
@@ -46,17 +44,18 @@ namespace Item.Infrastructure.Migrations
                     b.Property<string>("ShortName")
                         .HasMaxLength(16);
 
-                    b.Property<int?>("TypeId")
-                        .IsRequired();
+                    b.Property<int?>("_typeId")
+                        .IsRequired()
+                        .HasColumnName("TypeId");
 
-                    b.Property<Guid?>("UnitMeasureId")
-                        .IsRequired();
+                    b.Property<Guid>("_unitMeasureId")
+                        .HasColumnName("UnitMeasureId");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("TypeId");
+                    b.HasIndex("_typeId");
 
-                    b.HasIndex("UnitMeasureId");
+                    b.HasIndex("_unitMeasureId");
 
                     b.ToTable("ItemMaster");
                 });
@@ -79,7 +78,7 @@ namespace Item.Infrastructure.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Decription");
+                    b.Property<string>("Description");
 
                     b.Property<string>("Name");
 
@@ -96,12 +95,12 @@ namespace Item.Infrastructure.Migrations
                 {
                     b.HasOne("Item.Domain.AggregatesModel.ItemAggregate.Type", "Type")
                         .WithMany()
-                        .HasForeignKey("TypeId")
+                        .HasForeignKey("_typeId")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("Item.Domain.AggregatesModel.ItemAggregate.UnitMeasure", "UnitMeasure")
                         .WithMany()
-                        .HasForeignKey("UnitMeasureId")
+                        .HasForeignKey("_unitMeasureId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

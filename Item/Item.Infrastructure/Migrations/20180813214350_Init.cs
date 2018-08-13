@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Item.Infrastructure.Migrations
 {
-    public partial class Initialize : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -29,7 +29,7 @@ namespace Item.Infrastructure.Migrations
                     Number = table.Column<string>(nullable: true),
                     Name = table.Column<string>(nullable: true),
                     ShortName = table.Column<string>(nullable: true),
-                    Decription = table.Column<string>(nullable: true)
+                    Description = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -44,12 +44,11 @@ namespace Item.Infrastructure.Migrations
                     Number = table.Column<string>(maxLength: 32, nullable: false),
                     Name = table.Column<string>(maxLength: 100, nullable: false),
                     ShortName = table.Column<string>(maxLength: 16, nullable: true),
-                    Decription = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(maxLength: 100, nullable: true),
                     DateTime = table.Column<DateTime>(nullable: false),
                     Active = table.Column<bool>(nullable: false),
                     UnitMeasureId = table.Column<Guid>(nullable: false),
-                    TypeId = table.Column<int>(nullable: false),
-                    Description = table.Column<string>(maxLength: 100, nullable: true)
+                    TypeId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

@@ -16,6 +16,6 @@ namespace Item.Application.Commands
         public bool Active { get; set; }
 
         public Guid UnitMeasureId { get; set; }
-        public Guid TypeId { get; set; }
+        public int TypeId { get; set; }
     }
 }
