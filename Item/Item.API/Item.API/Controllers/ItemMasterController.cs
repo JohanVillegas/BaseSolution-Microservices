@@ -20,7 +20,7 @@ namespace Item.API.Controllers
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
 
-
+        [Route("~/api/AddTodo")]
         [HttpPost]
         public async Task<IActionResult> ItemMaster([FromBody] CreateItemCommand command)
         {

@@ -15,7 +15,7 @@ namespace Item.Application.Commands
         public DateTime DateTime { get; set; }
         public bool Active { get; set; }
 
-        public Guid UnitMeasureId { get; private set; }
-        public Guid TypeId { get; private set; }
+        public Guid UnitMeasureId { get; set; }
+        public Guid TypeId { get; set; }
     }
 }

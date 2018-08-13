@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using Item.Domain.AggregatesModel.ItemAggregate;
 using Item.Infrastructure;
+using Item.Infrastructure.Repositories;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -28,11 +31,15 @@ namespace Item.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-
+            // Add MediatR
+           /// services.AddMediatR(typeof(GetProductQueryHandler).GetTypeInfo().Assembly);
+            //services.AddMediatR();
+            var assembly = AppDomain.CurrentDomain.Load("Item.Application");
+            services.AddMediatR(assembly);
             // Add DbContext using SQL Server Provider
             services.AddDbContext<ItemContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("NowDatabase")));
-
+            services.AddScoped<IItemRepository, ItemRepository>();
             // Add DbContext using SQL Server Provider
             //services.AddEntityFrameworkSqlServer()
             //    .AddDbContext<ItemContext>(options =>
