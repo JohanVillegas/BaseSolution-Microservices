@@ -13,5 +13,7 @@ namespace Item.Domain.AggregatesModel.ItemAggregate
         void Update(ItemMaster itemMaster);
 
         Task<ItemMaster> GetAsync(Guid itemMasterId);
+
+        Task<List<ItemMaster>> GetAllAsync();
     }
 }

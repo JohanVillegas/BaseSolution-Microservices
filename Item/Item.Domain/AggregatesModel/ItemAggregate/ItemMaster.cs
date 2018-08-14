@@ -41,6 +41,7 @@ namespace Item.Domain.AggregatesModel.ItemAggregate
         #endregion
 
         #region [ methods ]
+        
         public static ItemMaster AddItemMaster(string number, string name, string shortName, string description,
                                                DateTime dateTime, bool active, Guid unitMeasureId, int typeId)
         {
@@ -59,6 +60,22 @@ namespace Item.Domain.AggregatesModel.ItemAggregate
             return itemMaster;
         }
 
+        public static ItemMaster UpdateItemMaster(Guid id, string number, string name, string shortName, string description, DateTime dateTime, bool active, Guid unitMeasureId, int typeId)
+        {
+            ItemMaster itemMaster = new ItemMaster()
+            {
+                Id = id,
+                Number = number,
+                Name = name,
+                ShortName = shortName,
+                Description = description,
+                DateTime = dateTime,
+                Active = active,
+                _unitMeasureId = unitMeasureId,
+                _typeId = typeId
+            };
+            return itemMaster;
+        }
         #endregion
 
 

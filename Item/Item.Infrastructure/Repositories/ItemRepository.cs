@@ -39,6 +39,17 @@ namespace Item.Infrastructure.Repositories
             return itemMaster;
         }
 
+        public Task<List<ItemMaster>> GetAllAsync()
+        {
+            var itemMasters = _context.ItemMaster
+                    .Include(i => i.UnitMeasure)
+                    .Include(i => i.Type)
+                    .ToListAsync();
+
+            //List<ItemMaster> itemMaster = _context.ItemMaster.d();
+            return itemMasters;
+        }
+
         public void Update(ItemMaster itemMaster)
         {
             _context.Entry(itemMaster).State = EntityState.Modified;

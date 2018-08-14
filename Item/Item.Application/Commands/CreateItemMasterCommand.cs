@@ -6,12 +6,12 @@ using System.Text;
 
 namespace Item.Application.Commands
 {
-    public class CreateItemCommand : IRequest<bool>
+    public class CreateItemMasterCommand : IRequest<bool>
     {
         public string Number { get; set; }
         public string Name { get; set; }
         public string ShortName { get; set; }
-        public string Decription { get; set; }
+        public string Description { get; set; }
         public DateTime DateTime { get; set; }
         public bool Active { get; set; }
 
