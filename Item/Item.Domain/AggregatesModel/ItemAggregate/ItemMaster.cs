@@ -4,8 +4,8 @@ using System;
 
 namespace Item.Domain.AggregatesModel.ItemAggregate
 {
-    
-    public class ItemMaster :Entity, IAggregateRoot
+
+    public class ItemMaster : Entity, IAggregateRoot
     {
         #region [ attributes ]
         public string Number { get; private set; }
@@ -25,7 +25,7 @@ namespace Item.Domain.AggregatesModel.ItemAggregate
         public ItemMaster()
         {
 
-        } 
+        }
 
         public ItemMaster(string number, string name, string shortName, string description, DateTime dateTime, bool active, Guid unitMeasureId, int typeId)
         {
@@ -41,18 +41,22 @@ namespace Item.Domain.AggregatesModel.ItemAggregate
         #endregion
 
         #region [ methods ]
-        public void AddItemMaster(string number, string name, string shortName, string description, 
+        public static ItemMaster AddItemMaster(string number, string name, string shortName, string description,
                                                DateTime dateTime, bool active, Guid unitMeasureId, int typeId)
         {
-            Number = number;
-            Name = name;
-            ShortName = shortName;
-            Description = description;
-            DateTime = dateTime;
-            Active = active;
-            _unitMeasureId = unitMeasureId;
-            _typeId = typeId;
-            Id = Guid.NewGuid();
+            ItemMaster itemMaster = new ItemMaster()
+            {
+                Id = Guid.NewGuid(),
+                Number = number,
+                Name = name,
+                ShortName = shortName,
+                Description = description,
+                DateTime = dateTime,
+                Active = active,
+                _unitMeasureId = unitMeasureId,
+                _typeId = typeId
+            };
+            return itemMaster;
         }
 
         #endregion

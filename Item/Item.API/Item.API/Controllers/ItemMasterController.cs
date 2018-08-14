@@ -20,31 +20,13 @@ namespace Item.API.Controllers
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
 
-        [Route("~/api/AddTodo")]
+        //POST: api/ItemMaster
         [HttpPost]
-        public async Task<IActionResult> ItemMaster([FromBody] CreateItemCommand command)
+        public async Task<IActionResult> PostItemMaster([FromBody] CreateItemCommand command)
         {
-            var viewModel = await _mediator.Send(command);
-            return Ok(viewModel);
+            var response = await _mediator.Send(command);
+            return Ok(response);
         }
-
-        //[Route("draft")]
-        //[HttpPost]
-        //public async Task<IActionResult> GetOrderDraftFromBasketData([FromBody] CreateOrderDraftCommand createOrderDraftCommand)
-        //{
-        //    var draft = await _mediator.Send(createOrderDraftCommand);
-        //    return Ok(draft);
-        //}
-
-
-        //[HttpPost]
-        //[ProducesResponseType(typeof(ProductViewModel), (int)HttpStatusCode.OK)]
-        //public async Task<IActionResult> PostProduct([FromBody] CreateProductCommand command)
-        //{
-        //    var viewModel = await Mediator.Send(command);
-
-        //    return CreatedAtAction("GetProduct", new { id = viewModel.Product.ProductId }, viewModel);
-        //}
 
     }
 }

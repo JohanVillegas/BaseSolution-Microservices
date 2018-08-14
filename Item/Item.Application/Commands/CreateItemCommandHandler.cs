@@ -27,12 +27,9 @@ namespace Item.Application.Commands
             // DDD patterns comment: Add child entities and value-objects through the Order Aggregate-Root
             // methods and constructor so validations, invariants and business logic 
             // make sure that consistency is preserved across the whole aggregate
+            ItemMaster itemMaster = ItemMaster.AddItemMaster(request.Number, request.Name, request.ShortName, request.Decription, request.DateTime, request.Active, request.UnitMeasureId, request.TypeId);
 
-            var item = new ItemMaster();
-
-            item.AddItemMaster(request.Number, request.Name, request.ShortName, request.Decription, request.DateTime, request.Active, request.UnitMeasureId, request.TypeId);
-
-            _itemRepository.Add(item);
+            _itemRepository.Add(itemMaster);
 
             return await _itemRepository.UnitOfWork.SaveEntitiesAsync();
         }
