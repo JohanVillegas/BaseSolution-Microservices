@@ -8,12 +8,14 @@ namespace Item.Domain.AggregatesModel.ItemAggregate
 {
     public interface IItemRepository : IRepository<ItemMaster>
     {
+        Task<List<ItemMaster>> GetAllAsync();
+
+        Task<ItemMaster> GetAsync(Guid itemMasterId);
+
         ItemMaster Add(ItemMaster itemMaster);
 
         void Update(ItemMaster itemMaster);
 
-        Task<ItemMaster> GetAsync(Guid itemMasterId);
-
-        Task<List<ItemMaster>> GetAllAsync();
+        void Delete(ItemMaster itemMaster);
     }
 }

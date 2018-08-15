@@ -19,9 +19,14 @@ namespace Item.Infrastructure.Repositories
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-        public ItemMaster Add(ItemMaster itemMaster)
+        public async Task<List<ItemMaster>> GetAllAsync()
         {
-            return _context.ItemMaster.Add(itemMaster).Entity;
+            var itemMasters = await _context.ItemMaster
+                    .Include(i => i.UnitMeasure)
+                    .Include(i => i.Type)
+                    .ToListAsync();
+
+            return itemMasters;
         }
 
         public async Task<ItemMaster> GetAsync(Guid itemMasterId)
@@ -39,19 +44,22 @@ namespace Item.Infrastructure.Repositories
             return itemMaster;
         }
 
-        public async Task<List<ItemMaster>> GetAllAsync()
+        public ItemMaster Add(ItemMaster itemMaster)
         {
-            var itemMasters = await _context.ItemMaster
-                    .Include(i => i.UnitMeasure)
-                    .Include(i => i.Type)
-                    .ToListAsync();
-
-            return itemMasters;
+            return _context.ItemMaster.Add(itemMaster).Entity;
         }
 
         public void Update(ItemMaster itemMaster)
         {
-            _context.Entry(itemMaster).State = EntityState.Modified;
+            //_context.Entry(itemMaster).State = EntityState.Modified;
+            _context.ItemMaster.Update(itemMaster);
+
         }
+
+        public void Delete(ItemMaster itemMaster)
+        {
+            // var itemMaster = await _context.ItemMaster.SingleOrDefaultAsync(x => x.Id == itemMasterId);
+            _context.Remove(itemMaster);
+         }
     }
 }

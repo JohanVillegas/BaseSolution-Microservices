@@ -51,5 +51,14 @@ namespace Item.API.Controllers
             var response = await _mediator.Send(command);
             return Ok(response);
         }
+
+        // DELETE: api/ItemMaster/7
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteItemMaster(Guid id)
+        {
+            await _mediator.Send(new DeleteItemMasterCommand(id));
+
+            return NoContent();
+        }
     }
 }
