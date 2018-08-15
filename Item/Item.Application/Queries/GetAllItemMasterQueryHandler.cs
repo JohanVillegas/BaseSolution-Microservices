@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Linq;
 namespace Item.Application.Queries
 {
-    class GetAllItemMasterQueryHandler : IRequestHandler<GetAllItemMasterQuery, ItemMasterListViewModel>
+    public class GetAllItemMasterQueryHandler : IRequestHandler<GetAllItemMasterQuery, ItemMasterListViewModel>
     {
         private readonly IItemRepository _itemRepository;
         private readonly IMediator _mediator;
@@ -24,11 +24,13 @@ namespace Item.Application.Queries
         public async Task<ItemMasterListViewModel> Handle(GetAllItemMasterQuery request, CancellationToken cancellationToken)
         {
 
-            List<ItemDTO> _items = _itemRepository.GetAllAsync().Result.Select(ItemDTO.ProjectionDTO()).Cast<ItemDTO>().ToList();
+            var _items = await _itemRepository.GetAllAsync();
+
+            var viewModelDTO = _items.Select(ItemDTO.ProjectionDTO()).ToList(); 
 
             var viewModel = new ItemMasterListViewModel
             {
-                Items = _items,
+                Items = viewModelDTO,
                 CreateEnabled = true
             };
 

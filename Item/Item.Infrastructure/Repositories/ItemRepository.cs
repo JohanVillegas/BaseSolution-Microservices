@@ -39,14 +39,13 @@ namespace Item.Infrastructure.Repositories
             return itemMaster;
         }
 
-        public Task<List<ItemMaster>> GetAllAsync()
+        public async Task<List<ItemMaster>> GetAllAsync()
         {
-            var itemMasters = _context.ItemMaster
+            var itemMasters = await _context.ItemMaster
                     .Include(i => i.UnitMeasure)
                     .Include(i => i.Type)
                     .ToListAsync();
 
-            //List<ItemMaster> itemMaster = _context.ItemMaster.d();
             return itemMasters;
         }
 

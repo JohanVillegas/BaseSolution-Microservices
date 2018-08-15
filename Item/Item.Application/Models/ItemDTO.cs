@@ -27,5 +27,36 @@ namespace Item.Application.Models
                 Active = i.Active
             };
         }
+
+        public static implicit operator ItemDTO(ItemMaster i)
+        {
+            ItemDTO itemDTO = new ItemDTO{
+                Id = i.Id,
+                Name = i.Name,
+                Number = i.Number,
+                Decription = i.Description,
+                ShortName = i.ShortName,
+                DateTime = i.DateTime,
+                Active = i.Active
+            };
+
+            return itemDTO;
+        }
+
+        internal static ItemDTO ProjectionDTO(ItemMaster i)
+        {
+            ItemDTO itemDTO = new ItemDTO
+            {
+                Id = i.Id,
+                Name = i.Name,
+                Number = i.Number,
+                Decription = i.Description,
+                ShortName = i.ShortName,
+                DateTime = i.DateTime,
+                Active = i.Active
+            };
+
+            return itemDTO;
+        }
     }
 }

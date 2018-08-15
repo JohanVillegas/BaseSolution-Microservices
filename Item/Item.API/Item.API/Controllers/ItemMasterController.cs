@@ -22,11 +22,18 @@ namespace Item.API.Controllers
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
 
-        // GET: api/Products
+        // GET: api/ItemMaster
         [HttpGet]
-        public Task<ItemMasterListViewModel> GetItemMaster()
+        public Task<ItemMasterListViewModel> GetAllItemMaster()
         {
             return _mediator.Send(new GetAllItemMasterQuery());
+        }
+
+        // GET: api/ItemMaster/7
+        [HttpGet("{id}")]
+        public Task<ItemMasterViewModel> GetItemMaster(Guid id)
+        {
+            return _mediator.Send(new GetItemMasterQuery(id));
         }
 
         //POST: api/ItemMaster
