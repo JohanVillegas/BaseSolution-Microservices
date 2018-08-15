@@ -6,7 +6,7 @@ namespace Item.Application.Models
 {
     public class ItemMasterViewModel
     {
-        public ItemDTO Item { get; set; }
+        public ItemMasterDTO Item { get; set; }
 
         public bool EditEnabled { get; set; }
 

@@ -26,7 +26,7 @@ namespace Item.Application.Queries
 
             var _items = await _itemRepository.GetAllAsync();
 
-            var viewModelDTO = _items.Select(ItemDTO.ProjectionDTO()).ToList(); 
+            var viewModelDTO = _items.Select(ItemMasterDTO.ProjectionDTO()).ToList(); 
 
             var viewModel = new ItemMasterListViewModel
             {

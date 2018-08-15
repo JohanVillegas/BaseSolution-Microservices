@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 
 namespace Item.Application.Models
 {
-    public class ItemDTO
+    public class ItemMasterDTO
     {
         public Guid Id { get; set; }
         public string Number { get; set; }
@@ -14,9 +14,9 @@ namespace Item.Application.Models
         public DateTime DateTime { get; set; }
         public bool Active { get; set; }
 
-        public static Func<ItemMaster, ItemDTO> ProjectionDTO()
+        public static Func<ItemMaster, ItemMasterDTO> ProjectionDTO()
         {
-            return i => new ItemDTO
+            return i => new ItemMasterDTO
             {
                 Id = i.Id,
                 Name = i.Name,
@@ -28,24 +28,9 @@ namespace Item.Application.Models
             };
         }
 
-        public static implicit operator ItemDTO(ItemMaster i)
+        public static ItemMasterDTO ProjectionDTO(ItemMaster i)
         {
-            ItemDTO itemDTO = new ItemDTO{
-                Id = i.Id,
-                Name = i.Name,
-                Number = i.Number,
-                Decription = i.Description,
-                ShortName = i.ShortName,
-                DateTime = i.DateTime,
-                Active = i.Active
-            };
-
-            return itemDTO;
-        }
-
-        internal static ItemDTO ProjectionDTO(ItemMaster i)
-        {
-            ItemDTO itemDTO = new ItemDTO
+            ItemMasterDTO itemMasterDTO = new ItemMasterDTO
             {
                 Id = i.Id,
                 Name = i.Name,
@@ -56,7 +41,7 @@ namespace Item.Application.Models
                 Active = i.Active
             };
 
-            return itemDTO;
+            return itemMasterDTO;
         }
     }
 }

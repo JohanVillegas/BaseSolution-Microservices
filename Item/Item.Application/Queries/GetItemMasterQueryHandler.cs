@@ -30,7 +30,7 @@ namespace Item.Application.Queries
 
             var model = new ItemMasterViewModel
             {
-                Item =  ItemDTO.ProjectionDTO(_item),
+                Item =  ItemMasterDTO.ProjectionDTO(_item),
                 EditEnabled = true,
                 DeleteEnabled = false
             };
