@@ -31,28 +31,17 @@ namespace Item.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
             // Add MediatR
-           /// services.AddMediatR(typeof(GetProductQueryHandler).GetTypeInfo().Assembly);
-            //services.AddMediatR();
             var assembly = AppDomain.CurrentDomain.Load("Item.Application");
             services.AddMediatR(assembly);
+
             // Add DbContext using SQL Server Provider
             services.AddDbContext<ItemContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("NowDatabase")));
+
+            // Add Repositories
             services.AddScoped<IItemRepository, ItemRepository>();
-            // Add DbContext using SQL Server Provider
-            //services.AddEntityFrameworkSqlServer()
-            //    .AddDbContext<ItemContext>(options =>
-            //    {
-            //        options.UseSqlServer(Configuration.GetConnectionString("NowDatabase"),
-            //        sqlServerOptionsAction: sqlOptions =>
-            //        {
-            //            sqlOptions.MigrationsAssembly(typeof(Startup).GetTypeInfo().Assembly.GetName().Name);
-            //            sqlOptions.EnableRetryOnFailure(maxRetryCount: 10, maxRetryDelay: TimeSpan.FromSeconds(30), errorNumbersToAdd: null);
-            //        });
-            //    },
-            //    ServiceLifetime.Scoped
-            //    );
 
         }
 
