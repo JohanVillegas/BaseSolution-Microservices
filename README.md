@@ -182,7 +182,7 @@ namespace Item.API
 ```
 
 ### Controlador
-Solo necesitamos *_mediator.Send(command)* para tener el enlace del command y commandHandler
+Solo necesitamos *_mediator.Send(command)* para tener el enlace del command y commandHandler por medio de **MediatR**
 ```c#
 namespace Item.API.Controllers
 {
