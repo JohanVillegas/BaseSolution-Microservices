@@ -76,11 +76,56 @@ En la capa de aplicación se destacan las solicitudes y consultas por medio de *
 ### Descripcion grafica de la estructura basica de Application Layer
 ![Descripcion de la capa del dominio](https://github.com/JohanVillegas/BaseSolution/blob/master/img/ApplicationLayerV1.png) 
 
+### MediatR
+Es una Librería que nos permite desacoplar el envió, respuesta y notificación de la mensajería esto lo hace al desacoplar el envió de mensajes en el proceso desde el manejo de mensaje.
+
+En nuestro caso se va a utilizar para realizar la comunicación entre:
+- **Command ---> CommandHandler**
+- **Query ---> QueryHandler**
+
+**MediatR tiene dos tipos de mensajes que distribuye:** 
+  - Mensajes de solicitud / respuesta, enviados a un solo manejador  **(Vamos a trabajar por el momento)**
+  - Mensajes de notificación enviados a múltiples controladores
+  
+**Para realizar la implementación Primero, crea un mensaje**  
+La interfaz *IRequest* comprende un argumento, la cual es lo esperado. 
+```c#
+using MediatR; //----------------------------------------------- Libreria
+
+namespace Item.Application.Commands
+{
+   public class CreateCommand : IRequest<bool> //- La interfaz solicitud/respuesta maneja el comando como las consultas.
+   {
+       public string Number { get; set; }
+       ...
+   }
+}
+		
+```
+**Luego, creamos el controlador:** 
+La interfaz *IRequestHandler* comprende dos argumentos, el primero es lo que el esta esperando y la segundo, la respuesta que se va a  enviar. 
+```c#
+using MediatR; //----------------------------------------------- Libreria
+
+namespace Item.Application.Commands
+{
+  public class CreateCommandHandler : IRequestHandler<CreateCommand, bool> //- La interfaz a implementar para comandos y consultas.
+  {
+    public async Task<bool> Handle(CreateCommand request, CancellationToken cancellationToken)
+    {
+          return true;
+    }
+  }
+}
+
+```
+
+
 ### Commands
 #### Class Commands
-Básicamente, la clase de comando contiene todos los datos que se necesitan para llevar a cabo una transacción empresarial mediante los objetos de modelo de dominio. Por tanto, los comandos son simplemente las estructuras de datos que contienen datos de solo lectura y ningún comportamiento.
+Básicamente, la clase de comando contiene todos los datos que se necesitan para llevar a cabo **una transacción** empresarial mediante los objetos de modelo de dominio. Por tanto, los comandos son simplemente las estructuras de datos que contienen datos de solo lectura y ningún comportamiento.
 #### Class Commands Handlers
-Un controlador de comandos recibe un comando y obtiene un resultado del agregado que se usa (de dominio). El resultado debe ser la ejecución correcta del comando, o bien una excepción. En el caso de una excepción, el estado del sistema no debe cambiar.
+Un controlador de comandos recibe un comando y obtiene un resultado del agregado que se usa (de dominio). la ejecucion de la misma **debe de afectar el estado de sistema**.
 
 - **Normalmente, el controlador de comandos realiza estos pasos:**
   - Recibe el objeto de comando, como un DTO (desde el mediador u otro objeto de infraestructura).
@@ -91,9 +136,12 @@ Un controlador de comandos recibe un comando y obtiene un resultado del agregado
 
 ### Queries
 #### Class Queries
-La clase de consultas contiene todos los datos que se necesitan para llevar a cabo las series de filtros o condiciones necesarias para la consulta empresarial mediante los objetos de modelo de dominio. Por tanto, las consultas son simplemente las estructuras de datos que contienen datos de solo lectura y ningún comportamiento.
+La clase de consultas contiene todos los datos que se necesitan para llevar a cabo las series de **filtros o condiciones** necesarias para la consulta empresarial mediante los objetos de modelo de dominio. Por tanto, las consultas son simplemente las estructuras de datos que contienen datos de solo lectura y ningún comportamiento.
 #### Class Queries Handlers
-Un controlador de consulta recibe una consulta y obtiene un resultado del agregado que se usa (de dominio). en este caso el estado del sistema no debe ser afectado ya que simplemente estamos realizando consultas a nuestro persistencia.
+Un controlador de consulta recibe una consulta y obtiene un resultado del agregado que se usa (de dominio). en este caso el **estado del sistema no debe ser afectado** ya que simplemente estamos realizando consultas a nuestro persistencia.
 
 ### Models
+Estan comprendidos por los **DTO** se implementa como una puerta de enlace para realizar el mapeo de la entidades con la capa de dominio y **ViewModel** el cuel es responsable de implementar el comportamiento de la vista para responder a las acciones del usuario y de exponer los datos del modelo de forma tal que sea fácil usar bindings en la vista.
+
 ### Validations
+Son aquella restrinciones que necesita la capa de aplicacion para que pueda realizar la ejecucion de la solicitudes en los controladores tanto en los de Command como los de Query. **(al momento que se implemente estare dando mas detalle)**
