@@ -4,7 +4,7 @@ Es una solución base para aplicaciones arquitectónico de microservicios que im
 Descripcion de las caracteristicas de las capas en una Domain Driver Design
 
 ## Descripcion grafica de las dependencias entre capas 
-![Dependencia Entre Layer Patron DDD](https://github.com/JohanVillegas/BaseSolution/blob/master/img/DependenciaEntreLayerPatronDDD.png) 
+![Dependencia Entre Layer DDD](https://github.com/JohanVillegas/BaseSolution/blob/master/img/DependenciaV2.png) 
 
 ## 1. Domain Model Layer
 El modelo de dominio debe capturar las reglas, el comportamiento, el lenguaje de negocios y las restricciones del contexto delimitado o microservicio de negocio que representa.
