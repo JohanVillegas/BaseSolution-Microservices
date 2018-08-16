@@ -68,3 +68,32 @@ Es una representación de una sesión con la base de datos y se puede usar  para
 ### EntityConfiguration
 Es donde van a estar agrupadas las configuraciones de cada entidad, existen diferentes formas de realizar las configuraciones necesarias para las entidades de un proyecto, en este caso vamos a utilizar Fuent API, que es una forma práctica de cambiar la mayoría de convenciones y asignaciones en el nivel de infraestructura de la persistencia de datos, por lo que el modelo de entidad estará limpio y desacoplado de la infraestructura de persistencia.
 
+## Continuara ... Hasta aqui estariamos culminando la primera fase de la implementacion de esta capa. De igual forma se estara actualizando a medida que el proyecto vaya evolucionando.
+
+## 3. Application Layer
+En la capa de aplicación se destacan las solicitudes y consultas por medio de **Command**, CommandHandler, **Query** y QueryHandler, que necesita la aplicación para su **presentación**, además de **validaciones de entrada** para su respectiva funcionalidades, todo esto con una libreria que nos permite tener una cominicacion sin dependencia entre ellas **MediatR**. 
+
+### Descripcion grafica de la estructura basica de Application Layer
+![Descripcion de la capa del dominio](https://github.com/JohanVillegas/BaseSolution/blob/master/img/ApplicationLayerV1.png) 
+
+### Commands
+#### Class Commands
+Básicamente, la clase de comando contiene todos los datos que se necesitan para llevar a cabo una transacción empresarial mediante los objetos de modelo de dominio. Por tanto, los comandos son simplemente las estructuras de datos que contienen datos de solo lectura y ningún comportamiento.
+#### Class Commands Handlers
+Un controlador de comandos recibe un comando y obtiene un resultado del agregado que se usa (de dominio). El resultado debe ser la ejecución correcta del comando, o bien una excepción. En el caso de una excepción, el estado del sistema no debe cambiar.
+
+- **Normalmente, el controlador de comandos realiza estos pasos:**
+  - Recibe el objeto de comando, como un DTO (desde el mediador u otro objeto de infraestructura).
+  - Valida que el comando sea válido (si no lo hace el mediador).
+  - Crea una instancia de la instancia de raíz agregada que es el destino del comando actual.
+  - Ejecuta el método en la instancia de raíz agregada y obtiene los datos necesarios del comando.
+  - Conserva el nuevo estado del agregado en su base de datos relacionada. Esta última operación es la transacción real.
+
+### Queries
+#### Class Queries
+La clase de consultas contiene todos los datos que se necesitan para llevar a cabo las series de filtros o condiciones necesarias para la consulta empresarial mediante los objetos de modelo de dominio. Por tanto, las consultas son simplemente las estructuras de datos que contienen datos de solo lectura y ningún comportamiento.
+#### Class Queries Handlers
+Un controlador de consulta recibe una consulta y obtiene un resultado del agregado que se usa (de dominio). en este caso el estado del sistema no debe ser afectado ya que simplemente estamos realizando consultas a nuestro persistencia.
+
+### Models
+### Validations
