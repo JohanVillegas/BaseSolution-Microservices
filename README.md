@@ -2,7 +2,7 @@
 Es una solución base para aplicaciones arquitectónico de microservicios que implementa DDD para aquellos que quieren comenzar a desarrollar con tecnología .NET Core 2.1 y Docker.
 
 # Documentación relacionada
-La documentación se encuentra en nuestra WIKI y esta seccionada por fases, cada fase va a tener un  branch asociado.  a medida que el proyecto se trabaje se ira documentado por sus fases.
+La documentación se encuentra en nuestra WIKI y esta seccionada por fases, cada fase va a tener un  branch asociado,  a medida que el proyecto se trabaje, se ira documentado por sus fases.
 
 ## Menu
    * [Home][home]
