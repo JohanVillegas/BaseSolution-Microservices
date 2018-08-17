@@ -32,23 +32,21 @@ namespace Item.Infrastructure.EntityConfigurations
             itemMasterConfiguration.Property<bool>("Active")
                 .IsRequired();
 
-            itemMasterConfiguration.Property<Guid?>("TypeId")
-                .IsRequired();
-            itemMasterConfiguration.Property<Guid?>("UnitMeasureId")
-                .IsRequired();
 
+            itemMasterConfiguration.Property(e => e._typeId).HasColumnName("TypeId");
+            itemMasterConfiguration.Property(e => e._unitMeasureId).HasColumnName("UnitMeasureId");
             #endregion
 
             #region [ Entity restrictions ]
 
             itemMasterConfiguration.HasOne(t => t.Type)
                 .WithMany()
-                .HasForeignKey("TypeId")
+                .HasForeignKey(t => t._typeId)
                 .IsRequired();
 
             itemMasterConfiguration.HasOne(u => u.UnitMeasure)
                 .WithMany()
-                .HasForeignKey("UnitMeasureId")
+                .HasForeignKey(u => u._unitMeasureId)
                 .IsRequired();
 
             #endregion
