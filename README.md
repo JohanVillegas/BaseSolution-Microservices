@@ -146,6 +146,8 @@ Estan comprendidos por los **DTO** se implementa como una puerta de enlace para 
 ### Validations
 Son aquella restrinciones que necesita la capa de aplicacion para que pueda realizar la ejecucion de la solicitudes en los controladores tanto en los de Command como los de Query. **(al momento que se implemente estare dando mas detalle)**
 
+## Continuara ... Hasta aqui estariamos culminando la primera fase de la implementacion de esta capa. De igual forma se estara actualizando a medida que el proyecto vaya evolucionando.
+
 ## 3. API
 El proyecto API comprende las acciones fundamentales, las cuales es exponer los EndPoint en la sección de **controladores** y la configuración tanto de ambiente (**appsettings.json y Dockerfile**), como los servicios que va a utilizar todo el ecosistema del micro-servicio (**Statup.cs**).
 
@@ -207,3 +209,5 @@ namespace Item.API.Controllers
     }
 }
 ```
+
+## Continuara ... Hasta aqui estariamos culminando la primera fase de la implementacion de esta capa. De igual forma se estara actualizando a medida que el proyecto vaya evolucionando.
