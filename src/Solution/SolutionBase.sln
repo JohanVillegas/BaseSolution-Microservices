@@ -3,15 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Item.API", "Item.API\Item.API.csproj", "{AC042D52-7A32-47F1-9CA5-7A29819684E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Item.API", "..\Services\Item\Item.API\Item.API.csproj", "{AC042D52-7A32-47F1-9CA5-7A29819684E5}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{5F510D98-4A39-4ED9-9C25-122CA16DCB34}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Item.Domain", "..\Item.Domain\Item.Domain.csproj", "{A5B5B250-0743-425B-AB3E-A45FCB3B4922}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Item.Domain", "..\Services\Item\Item.Domain\Item.Domain.csproj", "{A5B5B250-0743-425B-AB3E-A45FCB3B4922}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Item.Infrastructure", "..\Item.Infrastructure\Item.Infrastructure.csproj", "{B1DA135D-CC04-4CE9-A193-2F2E6AF26846}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Item.Infrastructure", "..\Services\Item\Item.Infrastructure\Item.Infrastructure.csproj", "{B1DA135D-CC04-4CE9-A193-2F2E6AF26846}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Item.Application", "..\Item.Application\Item.Application.csproj", "{2FBE15C1-7F96-4994-A892-E1285313C5FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Item.Application", "..\Services\Item\Item.Application\Item.Application.csproj", "{2FBE15C1-7F96-4994-A892-E1285313C5FB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F07D80FB-04E1-4CE6-ABAD-7C3C66648A05}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{077945F5-177B-400E-BE96-42CA22B32A72}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Item", "Item", "{DF33FAB4-FABC-49A1-A055-D32561C7D570}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,6 +48,14 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AC042D52-7A32-47F1-9CA5-7A29819684E5} = {DF33FAB4-FABC-49A1-A055-D32561C7D570}
+		{A5B5B250-0743-425B-AB3E-A45FCB3B4922} = {DF33FAB4-FABC-49A1-A055-D32561C7D570}
+		{B1DA135D-CC04-4CE9-A193-2F2E6AF26846} = {DF33FAB4-FABC-49A1-A055-D32561C7D570}
+		{2FBE15C1-7F96-4994-A892-E1285313C5FB} = {DF33FAB4-FABC-49A1-A055-D32561C7D570}
+		{077945F5-177B-400E-BE96-42CA22B32A72} = {F07D80FB-04E1-4CE6-ABAD-7C3C66648A05}
+		{DF33FAB4-FABC-49A1-A055-D32561C7D570} = {077945F5-177B-400E-BE96-42CA22B32A72}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {96BCFFAC-52B2-4E33-8EBE-2D4AD03E2867}
