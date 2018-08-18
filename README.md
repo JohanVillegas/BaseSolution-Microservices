@@ -1,4 +1,4 @@
-# BaseSolution - Aplicación con Arquiectura de microservicio. Utilizando Tecnología Docker Containers y .NET Core 2.1 Implementando Domain Driven Design.
+# BaseSolution - Aplicación con Arquitectura de microservicio. Utilizando Tecnología Docker Containers y .NET Core 2.1 Implementando Domain Driven Design..
 Es una solución base, con arquiectura de microservicios, implementando DDD, para aquellos que quieren comenzar a desarrollar con tecnología .NET Core 2.1 y Docker.
 
 # Documentación relacionada
