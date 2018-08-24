@@ -15,7 +15,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-
+using NJsonSchema;
+using NSwag.AspNetCore;
 namespace Item.API
 {
     public class Startup
@@ -52,6 +53,14 @@ namespace Item.API
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            // Enable the Swagger UI middleware and the Swagger generator
+            app.UseSwaggerUi(typeof(Startup).GetTypeInfo().Assembly, settings =>
+            {
+                settings.GeneratorSettings.DefaultPropertyNameHandling =
+                    PropertyNameHandling.CamelCase;
+            });
+
 
             app.UseMvc();
         }
