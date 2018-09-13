@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using FluentValidation;
+using FluentValidation.AspNetCore;
+using Item.Application.Commands;
+using Item.Application.Validations;
 using Item.Domain.AggregatesModel.ItemAggregate;
 using Item.Infrastructure;
 using Item.Infrastructure.Repositories;
@@ -37,6 +41,9 @@ namespace Item.API
             var assembly = AppDomain.CurrentDomain.Load("Item.Application");
             services.AddMediatR(assembly);
 
+            // Add FluentValidation
+            services.AddMvc().AddFluentValidation();
+
             // Add DbContext using SQL Server Provider
             services.AddDbContext<ItemContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("NowDatabase")));
@@ -44,6 +51,8 @@ namespace Item.API
             // Add Repositories
             services.AddScoped<IItemRepository, ItemRepository>();
 
+            // Add Validations
+            services.AddTransient<IValidator<CreateItemMasterCommand>, CreateItemMasterCommandValidator>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
