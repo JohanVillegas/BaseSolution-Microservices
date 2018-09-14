@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using Item.API.Infrastructure;
 using Item.Application.Commands;
 using Item.Application.Validations;
 using Item.Domain.AggregatesModel.ItemAggregate;
@@ -53,6 +54,14 @@ namespace Item.API
 
             // Add Validations
             services.AddTransient<IValidator<CreateItemMasterCommand>, CreateItemMasterCommandValidator>();
+
+            // Add Exception Control Filter.
+            services.AddMvc(options =>
+            {
+                options.Filters.Add(typeof(HttpGlobalExceptionFilter));
+            }).AddControllersAsServices();  //Injecting Controllers themselves thru DI
+                                            //For further info see: http://docs.autofac.org/en/latest/integration/aspnetcore.html#controllers-as-services
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

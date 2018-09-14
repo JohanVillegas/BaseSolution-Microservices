@@ -1,4 +1,5 @@
-﻿using Item.Domain.SeedWork;
+﻿using Item.Domain.Exceptions;
+using Item.Domain.SeedWork;
 using Item.Domain.SeedWork.Interfaces;
 using System;
 
@@ -45,6 +46,11 @@ namespace Item.Domain.AggregatesModel.ItemAggregate
         public static ItemMaster AddItemMaster(string number, string name, string shortName, string description,
                                                DateTime dateTime, bool active, Guid unitMeasureId, int typeId)
         {
+            if (number == null || number == "")
+            {
+                throw new ItemDomainException("Invalid number of item");
+            }
+
             ItemMaster itemMaster = new ItemMaster()
             {
                 Id = Guid.NewGuid(),
