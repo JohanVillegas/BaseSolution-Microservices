@@ -16,6 +16,7 @@ La documentación se encuentra en nuestra WIKI y esta seccionada por fases, cada
    * [Swagger][swagger f2] 
    * [Validations][validations f2]
    * [Exceptions][exceptions f2]
+   * [Log][log f2]
 
 [home]: https://github.com/JohanVillegas/BaseSolution/wiki
 [capas]: https://github.com/JohanVillegas/BaseSolution/wiki/Capas-de-la-Soluci%C3%B3n
@@ -30,4 +31,6 @@ La documentación se encuentra en nuestra WIKI y esta seccionada por fases, cada
 [swagger f2]:https://github.com/JohanVillegas/BaseSolution-Microservices/wiki/Fase-II----Swagger
 [validations f2]:https://github.com/JohanVillegas/BaseSolution-Microservices/wiki/Fase-II----Validations
 [exceptions f2]:https://github.com/JohanVillegas/BaseSolution-Microservices/wiki/Fase-II----Exceptions
+[log f2]:https://github.com/JohanVillegas/BaseSolution-Microservices/wiki/Fase-II----Log
+
 
