@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,14 +16,21 @@ namespace Item.API.Infrastructure
     public class HttpGlobalExceptionFilter : IExceptionFilter
     {
         private readonly IHostingEnvironment env;
+        private readonly ILogger<HttpGlobalExceptionFilter> logger;
 
-        public HttpGlobalExceptionFilter(IHostingEnvironment env)
+        public HttpGlobalExceptionFilter(IHostingEnvironment env, ILogger<HttpGlobalExceptionFilter> logger)
         {
             this.env = env;
+            this.logger = logger;
         }
 
-        public void OnException(ExceptionContext context)
+    public void OnException(ExceptionContext context)
         {
+            logger.LogError(new EventId(context.Exception.HResult),
+               context.Exception,
+               context.Exception.Message);
+            logger.LogInformation("Esto es un prueba");
+
             if (context.Exception.GetType() == typeof(ItemDomainException))
             {
                 var problemDetails = new ValidationProblemDetails()
