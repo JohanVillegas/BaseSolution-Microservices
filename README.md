@@ -4,6 +4,8 @@ Es una solución base, con arquiectura de microservicios, implementando DDD, par
 # Documentación relacionada
 La documentación se encuentra en nuestra WIKI y esta seccionada por fases, cada fase va a tener un  branch asociado,  a medida que el proyecto se trabaje, se ira documentado por sus fases.
 
+# NOTA, el branch actualizado > [`develop`](https://github.com/JohanVillegas/BaseSolution-Microservices/tree/develop)
+
 # Menu
    * [Home][home]
    * [Capas de la Solución][capas]
